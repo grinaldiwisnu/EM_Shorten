@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EM Url Shorten</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+    <fieldset>
+        <h1 style="text-align: center; color: #2196F3;">Short URL EM UB 2019</h1>
+        <form action="/" id="form-submit" method="post">
+            <input name="url" type="text" class="ghost-input" placeholder="Masukkan Url" required>
+            <button type="button" onclick="post()" class="ghost-button">Shorten My Link</button>
+        </form>
+        <br>
+        <div class="ghost-result"><a target="_blank" id="result"></a>
+            <button onclick="copy()" data-clipboard-target="#result" class="btn-right" style="color: #2196F3;">copy
+            </button>
+        </div>
+    </fieldset>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <script>
+        function post() {
+            $('#result').removeAttr('href');
+            $.ajax({
+                url: 'add?' + $('#form-submit').serialize(),
+                type: 'GET',
+                dataType: 'json',
+                success: (r) => {
+                    if (r.result === true) {
+                        $('#result').attr('href', r.url);
+                        $('#result').html(r.url);
+                    } else {
+                        $('#result').html('Failed to shorten');
+                    }
+                }
+            });
+        }
+
+        function copy() {
+            new Clipboard('.btn-right');
+
+        }
+    </script>
+</div>
+</body>
