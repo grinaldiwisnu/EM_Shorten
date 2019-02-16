@@ -12,7 +12,7 @@
         <h1 style="text-align: center; color: #2196F3;">Short URL EM UB 2019</h1>
         <form action="/" id="form-submit" method="post">
             <input name="url" type="text" class="ghost-input" placeholder="Masukkan Url" required>
-            <button type="button" onclick="post()" class="ghost-button">Shorten My Link</button>
+            <button type="button" onclick="post()" class="ghost-button">Short Url</button>
         </form>
         <br>
         <div class="ghost-result"><a target="_blank" id="result"></a>
@@ -36,7 +36,7 @@
                         $('#result').attr('href', r.url);
                         $('#result').html(r.url);
                     } else {
-                        $('#result').html('Failed to shorten');
+                        $('#result').html('Gagal menggunakan short url');
                     }
                 }
             });
