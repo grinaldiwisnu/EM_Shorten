@@ -1,4 +1,4 @@
-exports.root_url = "http://localhost:3500/";
+exports.root_url = "http://short.codechild.me:3000";
 exports.min_vanity = 4;
 exports.urls_per_hour = 50;
 

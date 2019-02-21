@@ -111,7 +111,7 @@ const addUrl = function (url, request, response, vanity) {
                         if (err) {
                             console.log(err);
                         }
-                        if (url.indexOf("http://localhost") > -1 || url.indexOf("https://localhost") > -1) {
+                        if (url.indexOf("http://short.codechild.me") > -1 || url.indexOf("https://short.codechild.me") > -1) {
                             response.send(urlResult(null, 'false', 401));
                             return;
                         }
